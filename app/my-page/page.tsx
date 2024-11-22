@@ -13,8 +13,8 @@ export default async function Page() {
   }
 
   return (
-    <div className="flex-1 w-full flex flex-col">
-      <pre className="text-xs p-3 rounded border">
+    <div>
+      <pre className="text-xs m-4 p-3 rounded border max-w-7xl">
         {JSON.stringify(user, null, 2)}
       </pre>
     </div>

@@ -1,35 +1,40 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+
+import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
 
 export const ThemeSwitcher = () => {
-  const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const { setTheme } = useTheme();
+  const { toast } = useToast();
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const toggleTheme = () => {
-    const currentTheme = theme === "dark" ? "light" : "dark";
-    setTheme(currentTheme);
-  };
-
-  if (!mounted) {
-    return null;
+  function handleClick(value: string) {
+    setTheme(value);
+    toast({
+      title: "テーマを変更しました",
+    });
   }
 
   return (
-    <Button
-      onClick={toggleTheme}
-      variant="ghost"
-      size="icon"
-      className="text-muted-foreground shrink-0"
-    >
-      {theme === "light" ? <Sun size={16} /> : <Moon size={16} />}
-    </Button>
+    <div className="flex gap-2">
+      <Button
+        variant={"default"}
+        onClick={() => handleClick("light")}
+        className="w-full"
+      >
+        <Sun className="size-4 mr-2" />
+        <span>ライト</span>
+      </Button>
+      <Button
+        variant={"outline"}
+        onClick={() => handleClick("dark")}
+        className="w-full"
+      >
+        <Moon className="size-4 mr-2" />
+        <span>ダーク</span>
+      </Button>
+    </div>
   );
 };

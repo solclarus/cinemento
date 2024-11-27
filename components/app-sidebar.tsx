@@ -14,7 +14,6 @@ import {
   SidebarMenuSubItem,
   SidebarRail,
 } from "@/components/ui/sidebar";
-import { NavUser } from "./nav-user";
 import { siteConfig } from "@/config/site";
 import { items } from "@/config";
 import { AppSidebarFooter } from "./app-sidebar-footer";

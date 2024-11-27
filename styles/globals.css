@@ -82,4 +82,7 @@
   body {
     @apply bg-background text-foreground;
   }
+  .grid-list {
+    @apply grid gap-3 grid-cols-[repeat(auto-fill,minmax(8rem,1fr))] md:grid-cols-[repeat(auto-fill,minmax(12rem,1fr))];
+  }
 }

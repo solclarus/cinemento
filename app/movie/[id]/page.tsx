@@ -1,13 +1,17 @@
 import { getMovie } from "@/app/data/movie";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { MovieDetails } from "@/types/tmdb/movie";
-import { CalendarDays, Clock, DollarSign, Star } from "lucide-react";
+import { Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-export default async function Detail({ params }: { params: { id: string } }) {
-  const movie: MovieDetails = await getMovie(params.id);
+export default async function Detail({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const id = (await params).id;
+  const movie: MovieDetails = await getMovie(id);
 
   return (
     <main>

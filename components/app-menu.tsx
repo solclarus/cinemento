@@ -10,6 +10,7 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Drawer,
   DrawerContent,
+  DrawerFooter,
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
@@ -26,13 +27,18 @@ export const AppMenu = () => {
   return (
     <Drawer open={open} onOpenChange={setOpen} shouldScaleBackground={false}>
       <DrawerTrigger asChild>
-        <Button size="icon" variant="outline">
+        <Button
+          size="icon"
+          className="rounded-full backdrop-blur bg-transparent text-white"
+        >
           <Menu size={16} />
         </Button>
       </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader>
-          <DrawerTitle>{siteConfig.name}</DrawerTitle>
+          <DrawerTitle>
+            <Link href={"/"}>{siteConfig.name}</Link>
+          </DrawerTitle>
         </DrawerHeader>
         <Accordion type="multiple" className="px-2">
           {items.map((item) =>
@@ -43,6 +49,11 @@ export const AppMenu = () => {
             )
           )}
         </Accordion>
+        <DrawerFooter>
+          <div className="w-full border rounded-md aspect-auto p-3">
+            <h2 className="text-muted-foreground">@username</h2>
+          </div>
+        </DrawerFooter>
       </DrawerContent>
     </Drawer>
   );

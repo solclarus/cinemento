@@ -1,6 +1,6 @@
 import { getNowPlayingMovies } from "@/app/data/movie";
 import { MovieListCard } from "@/components/movie-list-card";
-import { Movie } from "@/types/movie";
+import { Movie } from "@/types/tmdb/movie";
 
 export default async function NowPlaying() {
   const movies = await getNowPlayingMovies();

@@ -35,12 +35,10 @@ export const SearchBox = () => {
       <Button
         variant={"outline"}
         onClick={() => setOpen(true)}
-        className={cn(
-          "text-muted-foreground md:w-full md:rounded-md md:px-3 md:text-xs"
-        )}
+        className={cn("w-full rounded-md px-3")}
       >
         <Search size={16} className="mr-1" />
-        <div className="hidden md:block space-x-1">
+        <div className="space-x-1">
           <span>映画を探す</span>
           <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
             <span className="text-xs">⌘</span>K

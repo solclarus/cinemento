@@ -13,7 +13,7 @@ export const AppSettings = async () => {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button variant="outline" size="icon" className="shrink-0">
+        <Button size="icon" className="shrink-0 rounded-full bg-transparent">
           <Settings size={16} />
           <span className="sr-only">設定</span>
         </Button>

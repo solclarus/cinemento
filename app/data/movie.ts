@@ -23,31 +23,27 @@ const fetchFromTMDB = async (endpoint: string) => {
 };
 
 export const getNowPlayingMovies = cache(async () => {
-  const data = await fetchFromTMDB(
-    "movie/now_playing?language=ja-JP&region=JP"
-  );
+  const data = await fetchFromTMDB("movie/now_playing");
   return data ? data.results : [];
 });
 
 export const getPopularMovies = cache(async () => {
-  const data = await fetchFromTMDB("movie/popular?language=ja-JP&region=JP");
+  const data = await fetchFromTMDB("movie/popular");
   return data ? data.results : [];
 });
 
 export const searchMovies = cache(async (query: string) => {
   const data = await fetchFromTMDB(
-    `search/movie?query=${encodeURIComponent(
-      query
-    )}&include_adult=false&language=ja-JP`
+    `search/movie?query=${encodeURIComponent(query)}&include_adult=false`
   );
   return data ? data.results : [];
 });
 
 export const getMovie = cache(async (id: string) => {
-  return await fetchFromTMDB(`movie/${id}?language=ja-JP`);
+  return await fetchFromTMDB(`movie/${id}`);
 });
 
 export const getCasts = cache(async (id: string) => {
-  const data = await fetchFromTMDB(`movie/${id}/credits?language=ja-JP`);
+  const data = await fetchFromTMDB(`movie/${id}/credits`);
   return data ? data.cast.slice(0, 5) : [];
 });
